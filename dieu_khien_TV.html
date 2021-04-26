@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class TV
+    {
+        constructor()
+        {
+            this.onMode=false;
+            this.volume=10;
+            this.channel=1;
+        }
+        getMode()
+        {
+            if(this.onMode==false)
+            {
+                return 'TV is ON';
+            }
+            else return 'TV is OFF';
+        }
+        getChannel()
+        {
+            return this.channel;
+        }
+        getVolume()
+        {
+            return this.volume;
+        }
+    }
+    class Control
+    {
+        constructor(id)
+        {
+            this.id=id;
+        }
+        switchOnOff(tv)
+        {
+            tv.onMode=!tv.onMode;
+        }
+        changeChannel(tv,channel)
+        {
+            tv.channel=channel;
+        }
+        increaseVolume(tv,volume)
+        {
+            tv.volume+=5;
+        }
+        decreaseVolume(tv,volume)
+        {
+            tv.volume-=5;
+        }
+    }
+    let tv=new TV();
+    let control=new Control(1);
+    console.log(tv.getMode());
+    control.switchOnOff(tv);
+    console.log(tv.getMode());
+    console.log(tv.getChannel());
+    control.changeChannel(tv,7);
+    console.log(tv.getChannel());
+</script>
+</body>
+</html>

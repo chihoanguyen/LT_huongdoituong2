@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+class Switch
+{
+constructor()
+{
+this.onMode=false;
+}
+switch(lamp)
+{
+this.onMode=!this.onMode;
+lamp.onMode=this.onMode;
+if(lamp.status=='off') lamp.status='on';
+else lamp.status='off';
+console.log('Lamp turn '+lamp.status);
+}
+}
+class Lamp
+{
+constructor()
+{
+this.status='off';
+this.onMode=false;
+}
+}
+let sWc=new Switch();
+let lamp=new Lamp();
+sWc.switch(lamp);
+sWc.switch(lamp);
+</script>
+</body>
+</html>

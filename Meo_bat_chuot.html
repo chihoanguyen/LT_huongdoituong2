@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mouse{
+        constructor(name,weight,speed)
+        {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.isAlive = true;
+        }
+        loudOut(){
+            if(this.isAlive){
+                console.log("Chit Chit!");
+            }
+            else console.log("Its Dead!");
+        }
+    }
+    class Cat{
+        constructor(name,weight,speed)
+        {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+        loudOut(){
+            console.log("Meow Meow!");
+        }
+        catchMouse(mouse) {
+            if(this.speed>mouse.speed){
+                console.log(this.name+'catched'+mouse.name+'!');
+                return true;
+            }
+            else {
+                console.log(this.name+'is to slow to catch the mouse'+mouse.name);
+                return false
+            }
+        }
+        eatMouse(mouse){
+            if(mouse.isAlive){
+                this.weight+=mouse.weight;
+                mouse.isAlive=false;
+                console.log(this.name+'eaten'+mouse.name+'!');
+            }
+            else {
+                console.log(this.name +'eaten'+mouse.name+'!');
+            }
+        }
+    }
+    let cat=new Cat('Tom',10,20);
+    let mouse = new Mouse('Jerry',3,15);
+    let mouseFast=new Mouse('Bob',3,25);
+    cat.catchMouse(mouse);
+    cat.eatMouse(mouse);
+    cat.catchMouse(mouseFast);
+    cat.eatMouse(mouseFast);
+    cat.eatMouse(mouse);
+</script>
+</body>
+</html>
